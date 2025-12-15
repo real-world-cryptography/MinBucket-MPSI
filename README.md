@@ -16,7 +16,7 @@ started:
 ### Pulling the Docker image
 
 ```
-docker pull kafei2cy/minbucket-mpsi:v1.3
+docker pull kafei2cy/minbucket-mpsi:v2.0
 ```
 
 ### Running a Docker Container
@@ -24,36 +24,15 @@ docker pull kafei2cy/minbucket-mpsi:v1.3
 To run a Docker container from the image you pulled and access the Container Shell, use the following command:
 
 ```shell
-docker run -it --name your-container-name kafei2cy/minbucket-mpsi:v1.3 /bin/bash
+docker run -it --name your-container-name kafei2cy/minbucket-mpsi:v2.0 /bin/bash
 
 #if you want use tc to change network setting, use the following command
-docker run -it --cap-add=NET_ADMIN --name your-container-name kafei2cy/minbucket-mpsi:v1.3 /bin/bash
+docker run -it --cap-add=NET_ADMIN --name your-container-name kafei2cy/minbucket-mpsi:v2.0 /bin/bash
 ```
 
 - `--name your-container-name` gives your container a name for easier reference.
 
 ### How to Modify Test Parameters
-
-- **Change the size of the big set**:
-
-Modify line 120 in `/home/MPSI/MinBucket-MPSI/uMCRG/MCRG/auto_prepare.py`.
-
-```
-#indicates the big set size is 2^14 
-prepare_receiver_data(pow(2,14), 256, 16, i, '0')
-```
-
-- **Change the number of party**:
-
-Modify line 6,8 in `/home/MPSI/MinBucket-MPSI/auto_test.sh`.
-
-```
-# set parites
-#Number of receivers for big set (set this equal to the Party number of big set)
-big_receiver_num=1
-#Number of receivers for small set (set this equal to the Party number of small set - 1)
-small_receiver_num=4
-```
 
 ### Change The Network Setting
 
@@ -70,18 +49,16 @@ tc qdisc del dev lo root
 ```
 cd /home/MPSI/MinBucket-MPSI/
 
-#if you change the test setting, run auto_test.sh to apply it.
-./auto_test.sh
-
 #for MPSI test
-./run_uMCRG.sh
-./run_MCRG.sh
-./run_J-PEQT.sh
+#set big set size = 2^14, Party number of big set = 1, Party number of small set = 2
+#if you want change, just change the arguments value
+python3 MPSI_auto_script.py -nn 14 -big 1 -small 2
+
 
 #for MPSI-CARD test
-./run_uMCRG.sh
-./run_MCRG.sh
-./run_JP-PEQT.sh
+#set big set size = 2^14, Party number of big set = 1, Party number of small set = 2
+#if you want change, just change the arguments value
+python3 MPSICA_auto_script.py -nn 14 -big 1 -small 2
 ```
 
 ### Stopping and Removing a Docker Container
