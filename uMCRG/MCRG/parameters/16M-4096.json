@@ -1,0 +1,62 @@
+{
+    "table_params": {
+        "hash_func_count": 3,
+        "table_size": 6552,
+        "max_items_per_bin": 1304
+    },
+    "item_params": {
+        "felts_per_item": 5
+    },
+    "query_params": {
+        "ps_low_degree": 44,
+        "query_powers": [ 1, 3, 11, 18, 45, 225 ]
+    },
+    "seal_params": {
+        "plain_modulus_bits": 22,
+        "poly_modulus_degree": 8192,
+        "coeff_modulus_bits": [ 56, 56, 56, 50 ]
+    }
+}
+INFO  15:56:11:319.251: /home/byj/文档/APSU/cli/sender/sender.cpp124
+INFO  15:56:11:320.967: /home/byj/文档/APSU/cli/sender/sender.cpp126
+INFO  15:56:11:321.041: Connecting to tcp://127.0.0.1:60000
+INFO  15:56:11:322.143: Successfully connected to tcp://127.0.0.1:60000
+INFO  15:56:11:322.161: Sending parameter request
+ERROR 15:56:11:322.187: File `16M-1024.json` does not exist
+ERROR 15:56:11:322.283: Error trying to read input file 16M-1024.json: file does not exist
+INFO  15:56:11:322.297: Received valid parameters
+INFO  15:56:11:322.309: Setting thread count to 1
+INFO  15:57:49:984.344: /home/byj/文档/APSU/cli/sender/sender.cpp124
+INFO  15:57:49:986.664: /home/byj/文档/APSU/cli/sender/sender.cpp126
+INFO  15:57:49:986.793: Connecting to tcp://127.0.0.1:60000
+INFO  15:57:49:988.456: Successfully connected to tcp://127.0.0.1:60000
+INFO  15:57:49:988.506: Sending parameter request
+ERROR 15:57:49:988.555: File `16M-1024.json` does not exist
+ERROR 15:57:49:988.702: Error trying to read input file 16M-1024.json: file does not exist
+INFO  15:57:49:988.734: Received valid parameters
+INFO  15:57:49:988.756: Setting thread count to 1
+INFO  16:02:36:717.302: /home/byj/文档/APSU/cli/sender/sender.cpp124
+INFO  16:02:36:718.973: /home/byj/文档/APSU/cli/sender/sender.cpp126
+INFO  16:02:36:719.045: Connecting to tcp://127.0.0.1:60000
+INFO  16:02:36:720.274: Successfully connected to tcp://127.0.0.1:60000
+INFO  16:02:36:720.299: Sending parameter request
+INFO  16:02:36:731.585: PSUParams have false-positive probability 2^(-53.2564) per receiver item
+INFO  16:02:36:731.610: Received valid parameters
+INFO  16:02:36:731.620: Setting thread count to 1
+INFO  16:02:36:748.887: Sending APSU query
+INFO  16:02:36:749.170: Creating encrypted query for 4096 items
+INFO  16:02:36:749.884: /home/byj/文档/APSU/sender/apsu/utils.cpp17
+INFO  16:02:37:392.411: Finished creating encrypted query
+INFO  16:02:38:756.458: Launching 1 result worker tasks to handle 4 result parts
+INFO  16:02:38:756.720: Result worker [140169074181696]: starting
+INFO  16:02:41:409.227: Received APSU query response
+INFO  16:02:41:409.248: Communication R->S: 5077 KB
+INFO  16:02:41:409.252: Communication S->R: 349 KB
+INFO  16:02:41:409.267: Communication total: 5427 KB
+INFO  16:02:41:409.278: Timespan event information
+INFO  16:02:41:409.283: Sender::create_query                           :     1 instances. Duration:    643ms
+INFO  16:02:41:409.288: Sender::create_query::cuckoo_hashing           :     1 instances. Duration:      0ms
+INFO  16:02:41:409.292: Sender::create_query::encrypt_data             :     1 instances. Duration:     42ms
+INFO  16:02:41:409.296: Sender::create_query::prepare_data             :     1 instances. Duration:      3ms
+INFO  16:02:41:409.300: Sender::initialize                             :     1 instances. Duration:     15ms
+INFO  16:02:41:409.304: Sender::process_result_worker [140169074181696]:     1 instances. Duration:   2651ms
